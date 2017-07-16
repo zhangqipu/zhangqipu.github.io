@@ -1,302 +1,91 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[小朴朴的博客]]></title>
-  <link href="http://localhost:4000/atom.xml" rel="self"/>
-  <link href="http://localhost:4000/"/>
-  <updated>2017-07-16T22:45:32+08:00</updated>
-  <id>http://localhost:4000/</id>
-  <author>
-    <name><![CDATA[张齐朴]]></name>
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>程序员必读书单 - 小朴朴的博客</title>
+  <meta name="author" content="张齐朴">
+
+  
+  <meta name="description" content="原文链接:http://lucida.me/blog/developer-reading-list/ 关于 本文把程序员所需掌握的关键知识总结为三大类19个关键概念，然后给出了掌握每个关键概念所需的入门书籍，必读书籍，以及延伸阅读。旨在成为最好最全面的程序员必读书单。
+前言 Reading &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://localhost:4000/blog/2014/07/16/cheng-xu-yuan-bi-du-shu-dan/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="小朴朴的博客" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">小朴朴的博客</a></h1>
+  
+    <h2>不积跬步无以至千里.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="localhost:4000">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">博客</a></li>
+  <li><a href="/blog/archives">归档</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
     
-  </author>
-  <generator uri="http://octopress.org/">Octopress</generator>
+      <h1 class="entry-title">程序员必读书单</h1>
+    
+    
+      <p class="meta">
+        
 
-  
-  <entry>
-    <title type="html"><![CDATA[iOS直播之搭建Linux直播RTMP服务器]]></title>
-    <link href="http://localhost:4000/blog/2015/03/20/ioszhi-bo-zhi-da-jian-linuxzhi-bo-rtmpfu-wu-qi/"/>
-    <updated>2015-03-20T10:37:38+08:00</updated>
-    <id>http://localhost:4000/blog/2015/03/20/ioszhi-bo-zhi-da-jian-linuxzhi-bo-rtmpfu-wu-qi</id>
-    <content type="html"><![CDATA[<p>iOS直播技术有很多，针对iOS平台有苹果的HLS点播。还有其他流媒体协议例如RTMP协议、RTSP协议、MMS协议等。这里要讲的是iOS和Android通用的RTMP，利用RTMP我们可以传输H264视频流，iOS或Android客户端接收到视频流后可以用FFmpeg实现H264的解码最终实现视频的播放。</p>
 
-<p>我们先来完成第一步，搭建一个RTMP服务器。然后我会在另一篇博客中介绍如何通过iOS客户端利用FFMpeg技术进行推流拉流完成直播。</p>
 
-<!--more-->
 
+<time class='entry-date' datetime='2014-07-16T22:02:44+08:00'><span class='date'><span class='date-month'>Jul</span> <span class='date-day'>16</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>10:02 pm</span></time>
+        
+      </p>
+    
+  </header>
 
-<h2>软硬件环境</h2>
 
-<p>MacbookPro +  Paralles Ubuntu12.04虚拟机</p>
-
-<h2>下载安装包</h2>
-
-<p>1.Nginx服务器 <a href="http://nginx.org/download/nginx-1.4.3.tar.gz%E3%80%82">http://nginx.org/download/nginx-1.4.3.tar.gz%E3%80%82</a></p>
-
-<p>2.Nginx RTMP模块 <a href="https://codeload.github.com/arut/nginx-rtmp-module/zip/master%EF%BC%8C">https://codeload.github.com/arut/nginx-rtmp-module/zip/master%EF%BC%8C</a> 当然如果你熟练Git可以用Git去克隆一个。</p>
-
-<p>3.OpenSSL 模块 <a href="http://www.openssl.org/source/openssl-1.0.0t.tar.gz">http://www.openssl.org/source/openssl-1.0.0t.tar.gz</a></p>
-
-<p>4.PCRE 模块 <a href="ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.37.zip">ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.37.zip</a></p>
-
-<p>5.zlib模块 <a href="http://zlib.net/zlib-1.2.8.tar.gz">http://zlib.net/zlib-1.2.8.tar.gz</a></p>
-
-<p>如果下载链接不可用可直接百度相应关键字进入官网下载即可。下载完这些安装包依次解压。（建议解压到同一个目录下，例如我在桌面建了一个目录:~/Desktop/software）</p>
-
-<p>解压命令：</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>tar -xvf filename    // 以.tar.gz结尾的
-</span><span class='line'>unzip filename        // 以.zip结尾的
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>编译</h2>
-
-<p>我们要把RTMP、OpenSSL、PCRE和zlib模块编译进nginx当中。</p>
-
-<p>打开Linux的终端切到Nginx安装源目录<code>cd ~Desktop/softwares/nginx-1.4.3</code></p>
-
-<p>添加nginx-rtmp-module-master、pcre-8.37、openssl-1.0.0t和zlib-1.2.8这些模块<code>./configure --add-module=../nginx-rtmp-module-master --with-pcre=../pcre-8.37 --with-openssl=../openssl-1.0.0t --with-zlib=../zlib-1.2.8</code></p>
-
-<p>诸位在敲命令的时候需注意自己各个模块解压后目录名称，根据自己的目录名称对命令进行修改</p>
-
-<p>如果出现错误 error: You need a C++ compiler for C++ support 表示你需要安装gcc和g++编译器，不怕这两条命令可以帮你搞定<code>sudo apt-get install gcc</code> <code>sudo apt-get install g++</code></p>
-
-<p>如果到这一步都没有问题，接下来我们进行编译(这个过程可能有点长)<code>sudo make</code></p>
-
-<p>然后执行安装命令<code>sudo make install</code></p>
-
-<p>将如下配置复制粘贴到Nginx配置文件中(/usr/local/nginx/conf/nginx.conf)</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-<span class='line-number'>46</span>
-<span class='line-number'>47</span>
-<span class='line-number'>48</span>
-<span class='line-number'>49</span>
-<span class='line-number'>50</span>
-<span class='line-number'>51</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>worker_processes  1<span class="p">;</span>
-</span><span class='line'>error_log  logs/error.log debug<span class="p">;</span>
-</span><span class='line'>events <span class="o">{</span>
-</span><span class='line'>    worker_connections  1024<span class="p">;</span>
-</span><span class='line'><span class="o">}</span>
-</span><span class='line'>rtmp <span class="o">{</span>
-</span><span class='line'>    server <span class="o">{</span>
-</span><span class='line'>        listen 1935<span class="p">;</span>
-</span><span class='line'>        application myapp <span class="o">{</span>
-</span><span class='line'>            live on<span class="p">;</span>
-</span><span class='line'>            <span class="c">#record keyframes;</span>
-</span><span class='line'>            <span class="c">#record_path /tmp;</span>
-</span><span class='line'>            <span class="c">#record_max_size 128K;</span>
-</span><span class='line'>            <span class="c">#record_interval 30s;</span>
-</span><span class='line'>            <span class="c">#record_suffix .this.is.flv;</span>
-</span><span class='line'>            <span class="c">#on_publish http://localhost:8080/publish;</span>
-</span><span class='line'>            <span class="c">#on_play http://localhost:8080/play;</span>
-</span><span class='line'>            <span class="c">#on_record_done http://localhost:8080/record_done;</span>
-</span><span class='line'>        <span class="o">}</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'><span class="o">}</span>
-</span><span class='line'>http <span class="o">{</span>
-</span><span class='line'>    server <span class="o">{</span>
-</span><span class='line'>        listen      8080<span class="p">;</span>
-</span><span class='line'>        location /stat <span class="o">{</span>
-</span><span class='line'>            rtmp_stat all<span class="p">;</span>
-</span><span class='line'>            rtmp_stat_stylesheet stat.xsl<span class="p">;</span>
-</span><span class='line'>        <span class="o">}</span>
-</span><span class='line'>        location /stat.xsl <span class="o">{</span>
-</span><span class='line'>            root /path/to/nginx-rtmp-module/<span class="p">;</span>
-</span><span class='line'>        <span class="o">}</span>
-</span><span class='line'>        location /control <span class="o">{</span>
-</span><span class='line'>            rtmp_control all<span class="p">;</span>
-</span><span class='line'>        <span class="o">}</span>
-</span><span class='line'>        <span class="c">#location /publish {</span>
-</span><span class='line'>        <span class="c">#    return 201;</span>
-</span><span class='line'>        <span class="c">#}</span>
-</span><span class='line'>        <span class="c">#location /play {</span>
-</span><span class='line'>        <span class="c">#    return 202;</span>
-</span><span class='line'>        <span class="c">#}</span>
-</span><span class='line'>        <span class="c">#location /record_done {</span>
-</span><span class='line'>        <span class="c">#    return 203;</span>
-</span><span class='line'>        <span class="c">#}</span>
-</span><span class='line'>        <span class="c">#location /rtmp-publisher {</span>
-</span><span class='line'>        <span class="c">#    root /usr/local/nginx/test;</span>
-</span><span class='line'>        <span class="c">#}</span>
-</span><span class='line'>        <span class="c">#location / {</span>
-</span><span class='line'>        <span class="c">#    root /usr/local/nginx/test/www;</span>
-</span><span class='line'>        <span class="c">#}</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>最后我们启动Nginx服务器</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">cd</span> /usr/local/nginx/sbin
-</span><span class='line'>sudo ./nginx -s stop
-</span><span class='line'>sudo ./nginx
-</span></code></pre></td></tr></table></div></figure>
-
-
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Mac iOS 模拟器屏幕录制成Gif]]></title>
-    <link href="http://localhost:4000/blog/2015/02/19/mac-ios-mo-ni-qi-ping-mu-lu-lu-zhi-cheng-gif/"/>
-    <updated>2015-02-19T15:01:29+08:00</updated>
-    <id>http://localhost:4000/blog/2015/02/19/mac-ios-mo-ni-qi-ping-mu-lu-lu-zhi-cheng-gif</id>
-    <content type="html"><![CDATA[<p>有的时候我们需要将iOS app 的运行效果录制下来并保存成gif动画，那么我们可以这样做：</p>
-
-<h2>录制mov格式视频</h2>
-
-<p>1、打开mac自带 QuickTime Player</p>
-
-<p>2、QuickTime Player > 文件 > 新建屏幕录制</p>
-
-<p>3、点击录制按钮 > 选择录制区域 (选择模拟器) > 开始录制</p>
-
-<p>4、录制完成 > 点击mac右上角停止按钮结束录制 > 保存格式为 mov</p>
-
-<h2>将mov视频转成gif</h2>
-
-<p>1、下载软件GIFBrewery，或百度“Mac GIFBrewery” <a href="http://m2.pc6.com/mac/GIFBrewery.dmg">http://m2.pc6.com/mac/GIFBrewery.dmg</a></p>
-
-<p>2、安装后运行，GIFBrewery > File > Open 那个mov视频</p>
-
-<p>3、点击界面Create GIF > Save成gif 文件即可</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[iOS牛人博客]]></title>
-    <link href="http://localhost:4000/blog/2015/01/25/iosniu-ren-bo-ke/"/>
-    <updated>2015-01-25T14:53:15+08:00</updated>
-    <id>http://localhost:4000/blog/2015/01/25/iosniu-ren-bo-ke</id>
-    <content type="html"><![CDATA[<p>唐巧的技术博客   <a href="http://blog.devtang.com">http://blog.devtang.com</a></p>
-
-<p>Lex iOS notes   <a href="http://ios.lextang.com">http://ios.lextang.com</a></p>
-
-<p>念茜的博客     <a href="http://blog.csdn.net/yiyaaixuexi">http://blog.csdn.net/yiyaaixuexi</a></p>
-
-<p>Xcode Dev   <a href="http://blog.xcodev.com">http://blog.xcodev.com</a></p>
-
-<p>txx&rsquo;s blog  <a href="http://blog.t-xx.me">http://blog.t-xx.me</a></p>
-
-<p>KEVIN BLOG  <a href="http://imkevin.me">http://imkevin.me</a></p>
-
-<p>阿毛的蛋疼地  <a href="http://xiangwangfeng.com">http://xiangwangfeng.com</a></p>
-
-<p>亚庆的 Blog  <a href="http://billwang1990.github.io">http://billwang1990.github.io</a></p>
-
-<p>Nonomori    <a href="http://nonomori.farbox.com">http://nonomori.farbox.com</a></p>
-
-<p>言无不尽    <a href="http://tang3w.com">http://tang3w.com</a></p>
-
-<p>Wonderffee&rsquo;s Blog   <a href="http://wonderffee.github.io">http://wonderffee.github.io</a></p>
-
-<p>I&rsquo;m TualatriX   <a href="http://imtx.me">http://imtx.me</a></p>
-
-<p>vclwei  <a href="http://vclwei.com">http://vclwei.com</a></p>
-
-<p>Cocoabit    <a href="http://blog.cocoabit.com">http://blog.cocoabit.com</a></p>
-
-<p>nixzhu on scriptogr.am  <a href="http://nixzhu.me">http://nixzhu.me</a></p>
-
-<p>不会开机的男孩   <a href="http://studentdeng.github.io">http://studentdeng.github.io</a></p>
-
-<p>Issue Press     <a href="http://issuepress.sugarmo.com">http://issuepress.sugarmo.com</a></p>
-
-<p>Nico    <a href="http://www.taofengping.com">http://www.taofengping.com</a></p>
-
-<p>阿峰的技术窝窝   <a href="http://hufeng825.github.io">http://hufeng825.github.io</a></p>
-
-<p>answer_huang    <a href="http://answerhuang.duapp.com">http://answerhuang.duapp.com</a></p>
-
-<p>webfrogs    <a href="http://webfrogs.me">http://webfrogs.me</a></p>
-
-<p>代码手工艺人  <a href="http://joeyio.com">http://joeyio.com</a></p>
-
-<p>Lancy&rsquo;s Blog    <a href="http://gracelancy.com">http://gracelancy.com</a></p>
-
-<p>I&rsquo;m Allen   <a href="http://www.imallen.com">http://www.imallen.com</a></p>
-
-<p>Travis' Blog    <a href="http://imi.im">http://imi.im</a></p>
-
-<p>王中周的个人博客    <a href="http://blog.csdn.net/wzzvictory">http://blog.csdn.net/wzzvictory</a></p>
-
-<p>会写代码的猪  <a href="http://gaosboy.com">http://gaosboy.com</a></p>
-
-<p>克伟的博客     <a href="http://www.cnblogs.com/wangkewei">http://www.cnblogs.com/wangkewei</a></p>
-
-<p>摇滚诗人    <a href="http://www.cnblogs.com/biosli">http://www.cnblogs.com/biosli</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[搭建自己的博客Octopress]]></title>
-    <link href="http://localhost:4000/blog/2015/01/19/da-jian-zi-ji-de-bo-ke-octopress/"/>
-    <updated>2015-01-19T13:59:57+08:00</updated>
-    <id>http://localhost:4000/blog/2015/01/19/da-jian-zi-ji-de-bo-ke-octopress</id>
-    <content type="html"><![CDATA[
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[程序员必读书单]]></title>
-    <link href="http://localhost:4000/blog/2014/07/16/cheng-xu-yuan-bi-du-shu-dan/"/>
-    <updated>2014-07-16T22:02:44+08:00</updated>
-    <id>http://localhost:4000/blog/2014/07/16/cheng-xu-yuan-bi-du-shu-dan</id>
-    <content type="html"><![CDATA[<p>原文链接:<a href="http://lucida.me/blog/developer-reading-list/">http://lucida.me/blog/developer-reading-list/</a></p>
+<div class="entry-content"><p>原文链接:<a href="http://lucida.me/blog/developer-reading-list/">http://lucida.me/blog/developer-reading-list/</a></p>
 
 <p>关于</p>
 
@@ -758,7 +547,7 @@ Head First设计模式</li>
 <p>任何产品代码都不是一蹴而就，而是在反复不断的修改中进化而来。重构正是这样一本介绍如何改进代码的书籍——如何在保持代码行为的基础上，提升代码的质量（这也是重构的定义）。</p>
 
 <p>我见过很多程序员，他们经常声称自己在重构代码，但他们实际只做了第二步（提升代码的质量），却没有保证第一步（保持代码行为），因此他们所谓的重构往往会适得其反——破坏现有代码或是引入新bug。这也是我推荐重构这本书的原因——它既介绍糟糕代码的特征（Bad smell）和改进代码的方法，也给出了重构的完整流程——1. 编写单元测试保持（Preserve）程序行为；2. 重构代码；3. 保证单元测试通过。重构还引入了一套重构术语（诸如封装字段，内联方法，和字段上移），以便程序员之间交流。只有理解了这三个方面，才能算是理解重构。
-<img src="http://localhost:4000/assests/images/guFET2p.jpg" alt="修改代码的艺术" />
+<img src="/assests/images/guFET2p.jpg" alt="修改代码的艺术" />
 修改代码的艺术</p>
 
 <p>这里再重复一遍重构的定义——在保持代码行为的基础上，提升代码的质量。重构专注于第二步，即如何提升代码的质量，而修改代码的艺术专注于第一步，即如何保持代码的行为。</p>
@@ -1152,7 +941,113 @@ Recommended Reading for Developers
 Book Reviews -- Joel Spolsky
 The five programming books that meant most to me
 </code></pre>
-]]></content>
-  </entry>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
   
-</feed>
+
+<span class="byline author vcard">Posted by <span class="fn">张齐朴</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2014-07-16T22:02:44+08:00'><span class='date'><span class='date-month'>Jul</span> <span class='date-day'>16</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>10:02 pm</span></time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://localhost:4000/blog/2014/07/16/cheng-xu-yuan-bi-du-shu-dan/" data-via="" data-counturl="http://localhost:4000/blog/2014/07/16/cheng-xu-yuan-bi-du-shu-dan/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+      
+        <a class="basic-alignment right" href="/blog/2015/01/19/da-jian-zi-ji-de-bo-ke-octopress/" title="Next Post: 搭建自己的博客Octopress">搭建自己的博客Octopress &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/03/20/ioszhi-bo-zhi-da-jian-linuxzhi-bo-rtmpfu-wu-qi/">iOS直播之搭建Linux直播RTMP服务器</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/02/19/mac-ios-mo-ni-qi-ping-mu-lu-lu-zhi-cheng-gif/">Mac iOS 模拟器屏幕录制成Gif</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/01/25/iosniu-ren-bo-ke/">iOS牛人博客</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/01/19/da-jian-zi-ji-de-bo-ke-octopress/">搭建自己的博客Octopress</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/07/16/cheng-xu-yuan-bi-du-shu-dan/">程序员必读书单</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2017 - 张齐朴 -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
