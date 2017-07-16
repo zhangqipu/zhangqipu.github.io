@@ -2,7 +2,7 @@
 #      Main Configs       #
 # ----------------------- #
 
-url: http://zhangqipu.github.io
+url: http://zhangqipu.github.io #http://localhost:4000
 title: 小朴朴的博客
 subtitle: 不积跬步无以至千里.
 author: 张齐朴
