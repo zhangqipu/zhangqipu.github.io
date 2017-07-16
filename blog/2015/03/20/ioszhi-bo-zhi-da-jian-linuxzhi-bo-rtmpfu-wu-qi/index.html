@@ -1,24 +1,90 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[小朴朴的博客]]></title>
-  <link href="http://zhangqipu.github.io/atom.xml" rel="self"/>
-  <link href="http://zhangqipu.github.io/"/>
-  <updated>2017-07-16T19:03:24+08:00</updated>
-  <id>http://zhangqipu.github.io/</id>
-  <author>
-    <name><![CDATA[张齐朴]]></name>
-    
-  </author>
-  <generator uri="http://octopress.org/">Octopress</generator>
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>iOS直播之搭建Linux直播RTMP服务器 - 小朴朴的博客</title>
+  <meta name="author" content="张齐朴">
 
   
-  <entry>
-    <title type="html"><![CDATA[iOS直播之搭建Linux直播RTMP服务器]]></title>
-    <link href="http://zhangqipu.github.io/blog/2015/03/20/ioszhi-bo-zhi-da-jian-linuxzhi-bo-rtmpfu-wu-qi/"/>
-    <updated>2015-03-20T10:37:38+08:00</updated>
-    <id>http://zhangqipu.github.io/blog/2015/03/20/ioszhi-bo-zhi-da-jian-linuxzhi-bo-rtmpfu-wu-qi</id>
-    <content type="html"><![CDATA[<p>iOS直播技术有很多，针对iOS平台有苹果的HLS点播。还有其他流媒体协议例如RTMP协议、RTSP协议、MMS协议等。这里要讲的是iOS和Android通用的RTMP，利用RTMP我们可以传输H264视频流，iOS或Android客户端接收到视频流后可以用FFmpeg实现H264的解码最终实现视频的播放。</p>
+  <meta name="description" content="iOS直播技术有很多，针对iOS平台有苹果的HLS点播。还有其他流媒体协议例如RTMP协议、RTSP协议、MMS协议等。这里要讲的是iOS和Android通用的RTMP，利用RTMP我们可以传输H264视频流， &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://zhangqipu.github.io/blog/2015/03/20/ioszhi-bo-zhi-da-jian-linuxzhi-bo-rtmpfu-wu-qi/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="小朴朴的博客" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">小朴朴的博客</a></h1>
+  
+    <h2>不积跬步无以至千里.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="zhangqipu.github.io">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">博客</a></li>
+  <li><a href="/blog/archives">归档</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">iOS直播之搭建Linux直播RTMP服务器</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-03-20T10:37:38+08:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>20</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>10:37 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>iOS直播技术有很多，针对iOS平台有苹果的HLS点播。还有其他流媒体协议例如RTMP协议、RTSP协议、MMS协议等。这里要讲的是iOS和Android通用的RTMP，利用RTMP我们可以传输H264视频流，iOS或Android客户端接收到视频流后可以用FFmpeg实现H264的解码最终实现视频的播放。</p>
 
 <p>我们先来完成第一步，搭建一个RTMP服务器。然后我会在另一篇博客中介绍如何通过iOS客户端利用FFMpeg技术进行推流拉流完成直播。</p>
 
@@ -187,108 +253,109 @@
 
 
 
-]]></content>
-  </entry>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
   
-  <entry>
-    <title type="html"><![CDATA[Mac iOS 模拟器屏幕录制成Gif]]></title>
-    <link href="http://zhangqipu.github.io/blog/2015/02/19/mac-ios-mo-ni-qi-ping-mu-lu-lu-zhi-cheng-gif/"/>
-    <updated>2015-02-19T15:01:29+08:00</updated>
-    <id>http://zhangqipu.github.io/blog/2015/02/19/mac-ios-mo-ni-qi-ping-mu-lu-lu-zhi-cheng-gif</id>
-    <content type="html"><![CDATA[<p>有的时候我们需要将iOS app 的运行效果录制下来并保存成gif动画，那么我们可以这样做：</p>
 
-<h2>录制mov格式视频</h2>
+<span class="byline author vcard">Posted by <span class="fn">张齐朴</span></span>
 
-<p>1、打开mac自带 QuickTime Player</p>
+      
 
-<p>2、QuickTime Player > 文件 > 新建屏幕录制</p>
 
-<p>3、点击录制按钮 > 选择录制区域 (选择模拟器) > 开始录制</p>
 
-<p>4、录制完成 > 点击mac右上角停止按钮结束录制 > 保存格式为 mov</p>
 
-<h2>将mov视频转成gif</h2>
+<time class='entry-date' datetime='2015-03-20T10:37:38+08:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>20</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>10:37 am</span></time>
+      
 
-<p>1、下载软件GIFBrewery，或百度“Mac GIFBrewery” <a href="http://m2.pc6.com/mac/GIFBrewery.dmg">http://m2.pc6.com/mac/GIFBrewery.dmg</a></p>
 
-<p>2、安装后运行，GIFBrewery > File > Open 那个mov视频</p>
-
-<p>3、点击界面Create GIF > Save成gif 文件即可</p>
-]]></content>
-  </entry>
+    </p>
+    
+      <div class="sharing">
   
-  <entry>
-    <title type="html"><![CDATA[iOS牛人博客]]></title>
-    <link href="http://zhangqipu.github.io/blog/2015/01/25/iosniu-ren-bo-ke/"/>
-    <updated>2015-01-25T14:53:15+08:00</updated>
-    <id>http://zhangqipu.github.io/blog/2015/01/25/iosniu-ren-bo-ke</id>
-    <content type="html"><![CDATA[<p>唐巧的技术博客   <a href="http://blog.devtang.com">http://blog.devtang.com</a></p>
-
-<p>Lex iOS notes   <a href="http://ios.lextang.com">http://ios.lextang.com</a></p>
-
-<p>念茜的博客     <a href="http://blog.csdn.net/yiyaaixuexi">http://blog.csdn.net/yiyaaixuexi</a></p>
-
-<p>Xcode Dev   <a href="http://blog.xcodev.com">http://blog.xcodev.com</a></p>
-
-<p>txx&rsquo;s blog  <a href="http://blog.t-xx.me">http://blog.t-xx.me</a></p>
-
-<p>KEVIN BLOG  <a href="http://imkevin.me">http://imkevin.me</a></p>
-
-<p>阿毛的蛋疼地  <a href="http://xiangwangfeng.com">http://xiangwangfeng.com</a></p>
-
-<p>亚庆的 Blog  <a href="http://billwang1990.github.io">http://billwang1990.github.io</a></p>
-
-<p>Nonomori    <a href="http://nonomori.farbox.com">http://nonomori.farbox.com</a></p>
-
-<p>言无不尽    <a href="http://tang3w.com">http://tang3w.com</a></p>
-
-<p>Wonderffee&rsquo;s Blog   <a href="http://wonderffee.github.io">http://wonderffee.github.io</a></p>
-
-<p>I&rsquo;m TualatriX   <a href="http://imtx.me">http://imtx.me</a></p>
-
-<p>vclwei  <a href="http://vclwei.com">http://vclwei.com</a></p>
-
-<p>Cocoabit    <a href="http://blog.cocoabit.com">http://blog.cocoabit.com</a></p>
-
-<p>nixzhu on scriptogr.am  <a href="http://nixzhu.me">http://nixzhu.me</a></p>
-
-<p>不会开机的男孩   <a href="http://studentdeng.github.io">http://studentdeng.github.io</a></p>
-
-<p>Issue Press     <a href="http://issuepress.sugarmo.com">http://issuepress.sugarmo.com</a></p>
-
-<p>Nico    <a href="http://www.taofengping.com">http://www.taofengping.com</a></p>
-
-<p>阿峰的技术窝窝   <a href="http://hufeng825.github.io">http://hufeng825.github.io</a></p>
-
-<p>answer_huang    <a href="http://answerhuang.duapp.com">http://answerhuang.duapp.com</a></p>
-
-<p>webfrogs    <a href="http://webfrogs.me">http://webfrogs.me</a></p>
-
-<p>代码手工艺人  <a href="http://joeyio.com">http://joeyio.com</a></p>
-
-<p>Lancy&rsquo;s Blog    <a href="http://gracelancy.com">http://gracelancy.com</a></p>
-
-<p>I&rsquo;m Allen   <a href="http://www.imallen.com">http://www.imallen.com</a></p>
-
-<p>Travis' Blog    <a href="http://imi.im">http://imi.im</a></p>
-
-<p>王中周的个人博客    <a href="http://blog.csdn.net/wzzvictory">http://blog.csdn.net/wzzvictory</a></p>
-
-<p>会写代码的猪  <a href="http://gaosboy.com">http://gaosboy.com</a></p>
-
-<p>克伟的博客     <a href="http://www.cnblogs.com/wangkewei">http://www.cnblogs.com/wangkewei</a></p>
-
-<p>摇滚诗人    <a href="http://www.cnblogs.com/biosli">http://www.cnblogs.com/biosli</a></p>
-]]></content>
-  </entry>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://zhangqipu.github.io/blog/2015/03/20/ioszhi-bo-zhi-da-jian-linuxzhi-bo-rtmpfu-wu-qi/" data-via="" data-counturl="http://zhangqipu.github.io/blog/2015/03/20/ioszhi-bo-zhi-da-jian-linuxzhi-bo-rtmpfu-wu-qi/" >Tweet</a>
   
-  <entry>
-    <title type="html"><![CDATA[搭建自己的博客Octopress]]></title>
-    <link href="http://zhangqipu.github.io/blog/2015/01/19/da-jian-zi-ji-de-bo-ke-octopress/"/>
-    <updated>2015-01-19T13:59:57+08:00</updated>
-    <id>http://zhangqipu.github.io/blog/2015/01/19/da-jian-zi-ji-de-bo-ke-octopress</id>
-    <content type="html"><![CDATA[
-]]></content>
-  </entry>
   
-</feed>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2015/02/19/mac-ios-mo-ni-qi-ping-mu-lu-lu-zhi-cheng-gif/" title="Previous Post: Mac iOS 模拟器屏幕录制成Gif">&laquo; Mac iOS 模拟器屏幕录制成Gif</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/03/20/ioszhi-bo-zhi-da-jian-linuxzhi-bo-rtmpfu-wu-qi/">iOS直播之搭建Linux直播RTMP服务器</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/02/19/mac-ios-mo-ni-qi-ping-mu-lu-lu-zhi-cheng-gif/">Mac iOS 模拟器屏幕录制成Gif</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/01/25/iosniu-ren-bo-ke/">iOS牛人博客</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/01/19/da-jian-zi-ji-de-bo-ke-octopress/">搭建自己的博客Octopress</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2017 - 张齐朴 -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
